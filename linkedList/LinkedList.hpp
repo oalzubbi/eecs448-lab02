@@ -40,21 +40,21 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	bool isFound = false;
 
-	if(isEmpty())
+	if(isEmpty())//if it's empty juts return false
 	{
 		return(false);
 	}
-	while(temp!=nullptr)
+	while(temp!=nullptr) //this condition loops until the last node
 	{
 		if(temp->getValue()==value)
 		{
-			isFound=true;
-			break;
+			isFound=true;//return true if it matches the value
+			break;//and break the loop when you find it
 		}
 
 		else
 		{
-			temp=temp->getNext();
+			temp=temp->getNext();//if you don't find it, move on to the next element
 		}
 	}
 
