@@ -115,23 +115,23 @@ bool LinkedList<T>::removeBack()
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
-	if(isEmpty())
+	if(isEmpty())//if it's empty, just return false
 	{
 		return(false);
 	}
 
-	lastNode = m_front;
-	while(lastNode->getNext() != nullptr)
+	lastNode = m_front;//start this here for the looping condition
+	while(lastNode->getNext() != nullptr)//this loop allows you to get to the last element in the list
 	{
-		secondintoLast = lastNode;
+		secondintoLast = lastNode;//secondintoLast will always be one behind lastNode
 		lastNode = lastNode->getNext();
 	}
 
-	secondintoLast->setNext(nullptr);
-	m_size--;
-	delete lastNode;
+	secondintoLast->setNext(nullptr);//set the secondintoLast node to nullptr to avoid a dangling pointer
+	m_size--; //decrement size
+	delete lastNode; //remove the last node
 
-	return(isRemoved);
+	return(true);
 }
 
 template <typename T>
